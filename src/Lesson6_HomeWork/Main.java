@@ -26,12 +26,11 @@ public class Main {
     }
 
     public static void countAnimals (Animal[] animals){
-        int[] count = new int[3];
         int countCats = 0, countDogs = 0, countAnimals = 0;
-        for (int i = 0; i<animals.length; i++){
-             if (animals[i] instanceof Cat){
+        for (Animal animal :animals){
+             if (animal instanceof Cat){
                 countCats++;
-             } else if (animals[i] instanceof Dog){
+             } else if (animal instanceof Dog){
                 countDogs++;
             } else {
                 countAnimals++;
