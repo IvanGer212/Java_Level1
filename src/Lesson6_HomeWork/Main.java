@@ -8,21 +8,32 @@ public class Main {
 
     public static void main(String[] args) {
         Animal[] animals = {new Cat(), new Dog(), new Cat(), new Cat(), new Dog()};
-        animals[0].setName("Barsik");
-        animals[1].setName("Bobik");
-        animals[2].setName("Pushok");
-        animals[3].setName("Snezhok");
-        animals[4].setName("Barbos");
 
+        setName(animals);
         animals[0].run(distanceForRun(animals[0],animals[0].getName()));
         animals[1].run(distanceForRun(animals[1],animals[1].getName()));
         animals[0].swim(distanceForSwim(animals[0],animals[0].getName()));
         animals[4].swim(distanceForSwim(animals[4],animals[4].getName()));
         animals[2].run(distanceForRun(animals[2],animals[2].getName()));
-
         countAnimals(animals);
 
 
+    }
+    public static void setName (Animal[] animals) {
+        Scanner scanner = new Scanner(System.in);
+        int countCats = 0, countDogs = 0;
+        for (Animal animal : animals) {
+            if (animal instanceof Cat) {
+                countCats++;
+                System.out.printf("Введите имя кота № %d %n",countCats);
+                animal.setName(scanner.nextLine());
+            }
+            else if (animal instanceof Dog) {
+                countDogs++;
+                System.out.printf("Введите имя собаки № %d %n",countDogs);
+                animal.setName(scanner.nextLine());
+            }
+        }
     }
 
     public static void countAnimals (Animal[] animals){
