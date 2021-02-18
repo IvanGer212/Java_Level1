@@ -43,11 +43,10 @@ public class Main {
                 countCats++;
              } else if (animal instanceof Dog){
                 countDogs++;
-            } else {
-                countAnimals++;
             }
+                countAnimals++;
         }
-        System.out.printf("Создано %d кошек, %d собак, %d других животных", countCats, countDogs, countAnimals);
+        System.out.printf("Создано %d кошек, %d собак, %d животных", countCats, countDogs, countAnimals);
     }
 
     public static int distanceForRun (Animal animal){
