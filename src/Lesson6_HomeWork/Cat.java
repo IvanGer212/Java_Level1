@@ -3,10 +3,9 @@ package Lesson6_HomeWork;
 import Lesson6_HomeWork.Base.Animal;
 
 public class Cat extends Animal {
-    private String name;
 
     public Cat() {
-        super(200, 0);
+        super("Cat", 200, 0);
 
     }
 
@@ -14,29 +13,22 @@ public class Cat extends Animal {
     public void run (int distance_run){
         if (getRun_distance() >= distance_run) {
             System.out.printf("Кот %s пробежал %d метров. %n",
-                    name,
+                    super.getName(),
                     distance_run
             );
         } else if (getRun_distance() < distance_run){
             System.out.printf("Кот %s не смог пробежать %d метров. ",
-                    name,
+                    super.getName(),
                     distance_run);
             System.out.printf("Кот %s может пробежать только %d метров. %n",
-                    name,
+                    super.getName(),
                     getRun_distance());
         }
     }
 
     @Override
     public void swim(int distance_swim){
-        System.out.printf("Кот %s не умеет плавать. %n", name);
+        System.out.printf("Кот %s не умеет плавать. %n", super.getName());
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
 }

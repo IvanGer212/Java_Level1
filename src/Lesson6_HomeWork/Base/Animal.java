@@ -1,13 +1,12 @@
 package Lesson6_HomeWork.Base;
 
 public abstract class Animal {
-   // private  String name;
-    private int run_distance;
+   private int run_distance;
     private int swim_distance;
     private String name;
 
-    public Animal (int run_distance, int swim_distance){
-        //this.name = name;
+    public Animal (String name, int run_distance, int swim_distance){
+        this.name = name;
         this.run_distance = run_distance;
         this.swim_distance = swim_distance;
     }

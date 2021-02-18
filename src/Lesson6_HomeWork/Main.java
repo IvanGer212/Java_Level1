@@ -10,11 +10,11 @@ public class Main {
         Animal[] animals = {new Cat(), new Dog(), new Cat(), new Cat(), new Dog()};
 
         setName(animals);
-        animals[0].run(distanceForRun(animals[0],animals[0].getName()));
-        animals[1].run(distanceForRun(animals[1],animals[1].getName()));
-        animals[0].swim(distanceForSwim(animals[0],animals[0].getName()));
-        animals[4].swim(distanceForSwim(animals[4],animals[4].getName()));
-        animals[2].run(distanceForRun(animals[2],animals[2].getName()));
+        animals[0].run(distanceForRun(animals[0]));
+        animals[1].run(distanceForRun(animals[1]));
+        animals[0].swim(distanceForSwim(animals[0]));
+        animals[4].swim(distanceForSwim(animals[4]));
+        animals[2].run(distanceForRun(animals[2]));
         countAnimals(animals);
 
 
@@ -50,7 +50,7 @@ public class Main {
         System.out.printf("Создано %d кошек, %d собак, %d других животных", countCats, countDogs, countAnimals);
     }
 
-    public static int distanceForRun (Animal animal, String name ){
+    public static int distanceForRun (Animal animal){
         Scanner scanner = new Scanner(System.in);
         String typeAnimal;
         if (animal instanceof Cat){
@@ -59,11 +59,11 @@ public class Main {
         else if (animal instanceof Dog){
             typeAnimal = "пёс";
         } else typeAnimal = "животное";
-        System.out.printf("Сколько должен пробежать %s %s %n", typeAnimal, name);
+        System.out.printf("Сколько должен пробежать %s %s %n", typeAnimal, animal.getName());
         return scanner.nextInt();
     }
 
-    public static int distanceForSwim (Animal animal, String name ){
+    public static int distanceForSwim (Animal animal){
         Scanner scanner = new Scanner(System.in);
         String typeAnimal;
         if (animal instanceof Cat){
@@ -72,7 +72,7 @@ public class Main {
         else if (animal instanceof Dog){
             typeAnimal = "пёс";
         } else typeAnimal = "животное";
-        System.out.printf("Сколько должен проплыть %s %s %n", typeAnimal, name);
+        System.out.printf("Сколько должен проплыть %s %s %n", typeAnimal, animal.getName());
         return scanner.nextInt();
     }
 }
