@@ -1,7 +1,7 @@
 package Lesson6_HomeWork.Base;
 
 public abstract class Animal {
-   private int run_distance;
+    private int run_distance;
     private int swim_distance;
     private String name;
 
