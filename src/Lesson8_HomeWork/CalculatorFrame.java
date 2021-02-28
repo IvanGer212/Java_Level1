@@ -12,9 +12,9 @@ public class CalculatorFrame extends JFrame {
 
         setLayout(new BorderLayout());
         TopFrame top = new TopFrame();
-        add(top.getPanel(), BorderLayout.NORTH);
+        add(top.getPanel(),BorderLayout.NORTH);
 
-        BottomFrame bottom = new BottomFrame(top.getInputField());
+        BottomFrame bottom = new BottomFrame(top.getInputTopField());
         add(bottom.getPanel(), BorderLayout.CENTER);
 
         setVisible(true);
