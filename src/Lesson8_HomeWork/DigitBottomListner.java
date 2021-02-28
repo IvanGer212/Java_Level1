@@ -32,13 +32,15 @@ public class DigitBottomListner implements ActionListener {
         }   else if (e.getActionCommand().equals("=") || e.getActionCommand().equals("SQRT") || (result.checkAction(e.getActionCommand()) && countComand != 0)) {
             result.fillBuff(Double.valueOf(resultField.getText()));
             resultField.setText(Double.toString(result.getResult(lastComand)));
+            if (result.isError()){
+                resultField.setText("Error");
+            }
             result.clearBuff();
             if (result.checkAction(e.getActionCommand())){
                 result.fillBuff(Double.valueOf(resultField.getText()));
                 inputField.setText(resultField.getText());
                 resultField.setText("");
             }
-
             lastComand = e.getActionCommand();
         }
             else if (e.getActionCommand().equals("C")){
@@ -46,6 +48,7 @@ public class DigitBottomListner implements ActionListener {
             inputField.setText("");
             result.clearBuff();
             countComand = 0;
+            result.acknowledgeError();
         }
             else {
             sbTemp.append(resultField.getText());

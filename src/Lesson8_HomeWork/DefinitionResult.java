@@ -4,6 +4,7 @@ public class DefinitionResult {
     private double result;
     private String action;
     private final double[] buffNum = new double[2];
+    private boolean error;
 
     public DefinitionResult(double result, String action) {
         this.result = result;
@@ -24,7 +25,10 @@ public class DefinitionResult {
             case "/":
                 if (buffNum[1] != 0) {
                     result = buffNum[0] / buffNum[1];
-                } else System.out.println("Error");
+                } else {
+                    error = true;
+                }
+
                 break;
             case "^":
                 result = Math.pow(buffNum[0],buffNum[1]);
@@ -67,4 +71,10 @@ public class DefinitionResult {
         } return false;
     }
 
+    public boolean isError() {
+        return error;
+    }
+    public void acknowledgeError(){
+        error = false;
+    }
 }
