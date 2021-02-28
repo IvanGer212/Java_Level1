@@ -8,10 +8,10 @@ import java.awt.event.ActionListener;
 public class BottomFrame {
     private final JPanel panel;
 
-    public BottomFrame(JTextField inputField) {
+    public BottomFrame(JTextField inputField, JTextField resultField) {
         panel = new JPanel();
         panel.setLayout( new GridLayout(5,3));
-        DigitBottomListner bottomListner = new DigitBottomListner(inputField);
+        DigitBottomListner bottomListner = new DigitBottomListner(inputField,resultField);
         ActionListener actionListener = new ActionBottomListner();
 
         for (int i =0; i<=9; i++){

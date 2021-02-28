@@ -6,12 +6,14 @@ import java.awt.event.ActionListener;
 
 public class DigitBottomListner implements ActionListener {
     private final JTextField inputField;
+    private final JTextField resultField;
     private final StringBuilder sb;
-    private DefinitionResult result;
+    private final DefinitionResult result;
 
 
-    public DigitBottomListner(JTextField inputField) {
+    public DigitBottomListner(JTextField inputField, JTextField resultField) {
         this.inputField = inputField;
+        this.resultField = resultField;
         sb = new StringBuilder();
         result = new DefinitionResult(0,"");
 
@@ -19,9 +21,12 @@ public class DigitBottomListner implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("+") || e.getActionCommand().equals("-") || e.getActionCommand().equals("SQRT") || e.getActionCommand().equals("="))  {
+        if (result.checkAction(e.getActionCommand())){
             result.fillBuff(Integer.valueOf(inputField.getText()));
-            result.checkAction(e.getActionCommand());
+            inputField.setText("");
+        }   else if (e.getActionCommand().equals("=")){
+            result.fillBuff(Integer.valueOf(inputField.getText()));
+            resultField.setText(Integer.toString(result.getResult()));
             inputField.setText("");
         }
             else {

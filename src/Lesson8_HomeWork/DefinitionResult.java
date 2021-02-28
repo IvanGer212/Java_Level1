@@ -35,22 +35,24 @@ public class DefinitionResult {
             }
         }
     }
-    public void checkAction (String act){
+    public boolean checkAction (String act){
         int res;
         switch (act) {
             case "+":
                 action = "sum";
-                break;
+                return true;
+                //break;
             case "-":
                 action = "sub";
-                break;
-            case "=":
-                res = getResult();
-                System.out.println(res);
+                return true;
+                //break;
+            //case "=":
+            //    res = getResult();
+            //    System.out.println(res);
 
             default:
                 break;
-        }
+        } return false;
     }
 
 }
