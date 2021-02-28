@@ -30,6 +30,11 @@ public class DigitBottomListner implements ActionListener {
             resultField.setText(Integer.toString(result.getResult()));
             result.clearBuff();
         }
+            else if (e.getActionCommand().equals("C")){
+            resultField.setText("");
+            inputField.setText("");
+            result.clearBuff();
+        }
             else {
             sbTemp.append(resultField.getText());
             sbTemp.append(((JButton) e.getSource()).getText());
@@ -37,9 +42,11 @@ public class DigitBottomListner implements ActionListener {
             sbTemp.setLength(0);
 
         }
-        sbFinal.append(inputField.getText());
-        sbFinal.append(((JButton) e.getSource()).getText());
-        inputField.setText(sbFinal.toString());
-        sbFinal.setLength(0);
+            if (!e.getActionCommand().equals("C")) {
+                sbFinal.append(inputField.getText());
+                sbFinal.append(((JButton) e.getSource()).getText());
+                inputField.setText(sbFinal.toString());
+                sbFinal.setLength(0);
+            }
     }
 }

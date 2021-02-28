@@ -23,16 +23,11 @@ public class BottomFrame {
         JButton result = new JButton("=");
         result.addActionListener(bottomListner);
         panel.add(result);
+
         JButton clear = new JButton("C");
         panel.add(clear);
-        clear.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                inputField.setText("");
-                resultField.setText("");
+        clear.addActionListener(bottomListner);
 
-            }
-        });
         JButton sum = new JButton("+");
         sum.addActionListener(bottomListner);
         sum.addActionListener(actionListener);
