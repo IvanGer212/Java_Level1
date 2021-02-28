@@ -12,7 +12,6 @@ public class BottomFrame {
         panel = new JPanel();
         panel.setLayout( new GridLayout(5,3));
         DigitBottomListner bottomListner = new DigitBottomListner(inputField,resultField);
-        ActionListener actionListener = new ActionBottomListner();
 
         for (int i =0; i<=9; i++){
             JButton btn = new JButton(String.valueOf(i));
@@ -30,7 +29,6 @@ public class BottomFrame {
 
         JButton sum = new JButton("+");
         sum.addActionListener(bottomListner);
-        sum.addActionListener(actionListener);
         panel.add(sum);
 
         JButton sub = new JButton("-");
@@ -48,6 +46,10 @@ public class BottomFrame {
         JButton sqrt = new JButton("SQRT");
         sqrt.addActionListener(bottomListner);
         panel.add(sqrt);
+
+        JButton point = new JButton(".");
+        point.addActionListener(bottomListner);
+        panel.add(point);
 
     }
 

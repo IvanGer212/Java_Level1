@@ -1,16 +1,16 @@
 package Lesson8_HomeWork;
 
 public class DefinitionResult {
-    private int result;
+    private float result;
     private String action;
-    private final int[] buffNum = new int[2];
+    private final float[] buffNum = new float[2];
 
     public DefinitionResult(int result, String action) {
         this.result = result;
         this.action = action;
     }
 
-    public int getResult() {
+    public float getResult() {
         switch (action){
             case "sum":
                 result = buffNum[0]+buffNum[1];
@@ -35,7 +35,7 @@ public class DefinitionResult {
         }
     }
 
-    public void fillBuff (int num){
+    public void fillBuff (float num){
         for (int i = 0; i < buffNum.length; i++) {
             if (buffNum[i] == 0){
                buffNum[i] = num;
