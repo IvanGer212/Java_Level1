@@ -19,11 +19,22 @@ public class DefinitionResult {
                 break;
             case "sub":
                 result = buffNum[0] - buffNum[1];
+                break;
+            case "multi":
+                result = buffNum[0] * buffNum[1];
+                break;
+            case "div":
+                if (buffNum[1] != 0) {
+                    result = buffNum[0] / buffNum[1];
+                } else System.out.println("Error");
         }
+        return result;
+    }
+
+    public void clearBuff (){
         for (int i = 0; i < buffNum.length; i++) {
             buffNum[i] = 0;
         }
-        return result;
     }
 
     public void fillBuff (int num){
@@ -41,14 +52,15 @@ public class DefinitionResult {
             case "+":
                 action = "sum";
                 return true;
-                //break;
             case "-":
                 action = "sub";
                 return true;
-                //break;
-            //case "=":
-            //    res = getResult();
-            //    System.out.println(res);
+            case "*":
+                action = "multi";
+                return true;
+            case "/":
+                action = "div";
+                return true;
 
             default:
                 break;

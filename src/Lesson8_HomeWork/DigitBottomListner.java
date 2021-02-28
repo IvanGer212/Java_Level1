@@ -7,14 +7,15 @@ import java.awt.event.ActionListener;
 public class DigitBottomListner implements ActionListener {
     private final JTextField inputField;
     private final JTextField resultField;
-    private final StringBuilder sb;
+    private final StringBuilder sbTemp, sbFinal;
     private final DefinitionResult result;
 
 
     public DigitBottomListner(JTextField inputField, JTextField resultField) {
         this.inputField = inputField;
         this.resultField = resultField;
-        sb = new StringBuilder();
+        sbTemp = new StringBuilder();
+        sbFinal = new StringBuilder();
         result = new DefinitionResult(0,"");
 
     }
@@ -22,18 +23,23 @@ public class DigitBottomListner implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (result.checkAction(e.getActionCommand())){
-            result.fillBuff(Integer.valueOf(inputField.getText()));
-            inputField.setText("");
+            result.fillBuff(Integer.valueOf(resultField.getText()));
+            resultField.setText("");
         }   else if (e.getActionCommand().equals("=")){
-            result.fillBuff(Integer.valueOf(inputField.getText()));
+            result.fillBuff(Integer.valueOf(resultField.getText()));
             resultField.setText(Integer.toString(result.getResult()));
-            inputField.setText("");
+            result.clearBuff();
         }
             else {
-            sb.append(inputField.getText());
-            sb.append(((JButton) e.getSource()).getText());
-            inputField.setText(sb.toString());
-            sb.setLength(0);
+            sbTemp.append(resultField.getText());
+            sbTemp.append(((JButton) e.getSource()).getText());
+            resultField.setText(sbTemp.toString());
+            sbTemp.setLength(0);
+
         }
+        sbFinal.append(inputField.getText());
+        sbFinal.append(((JButton) e.getSource()).getText());
+        inputField.setText(sbFinal.toString());
+        sbFinal.setLength(0);
     }
 }

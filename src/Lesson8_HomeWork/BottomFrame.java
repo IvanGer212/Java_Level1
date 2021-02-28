@@ -29,6 +29,8 @@ public class BottomFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 inputField.setText("");
+                resultField.setText("");
+
             }
         });
         JButton sum = new JButton("+");
@@ -39,6 +41,14 @@ public class BottomFrame {
         JButton sub = new JButton("-");
         sub.addActionListener(bottomListner);
         panel.add(sub);
+
+        JButton multi = new JButton("*");
+        multi.addActionListener(bottomListner);
+        panel.add(multi);
+
+        JButton div = new JButton("/");
+        div.addActionListener(bottomListner);
+        panel.add(div);
 
         JButton sqrt = new JButton("SQRT");
         sqrt.addActionListener(bottomListner);
