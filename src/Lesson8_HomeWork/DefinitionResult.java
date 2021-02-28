@@ -10,26 +10,26 @@ public class DefinitionResult {
         this.action = action;
     }
 
-    public double getResult() {
-        switch (action){
-            case "sum":
-                result = buffNum[0]+buffNum[1];
+    public double getResult(String lastComand) {
+        switch (lastComand){
+            case "+":
+                result = buffNum[0] + buffNum[1];
                 break;
-            case "sub":
+            case "-":
                 result = buffNum[0] - buffNum[1];
                 break;
-            case "multi":
+            case "*":
                 result = buffNum[0] * buffNum[1];
                 break;
-            case "div":
+            case "/":
                 if (buffNum[1] != 0) {
                     result = buffNum[0] / buffNum[1];
                 } else System.out.println("Error");
                 break;
-            case "pow":
+            case "^":
                 result = Math.pow(buffNum[0],buffNum[1]);
                 break;
-            case "sqrt":
+            case "SQRT":
                 result = Math.sqrt(buffNum[0]);
                 break;
         }
@@ -54,19 +54,10 @@ public class DefinitionResult {
     public boolean checkAction (String act){
         switch (act) {
             case "+":
-                action = "sum";
-                return true;
             case "-":
-                action = "sub";
-                return true;
             case "*":
-                action = "multi";
-                return true;
             case "/":
-                action = "div";
-                return true;
             case "^":
-                action = "pow";
                 return true;
             case "SQRT":
                 action = "sqrt";

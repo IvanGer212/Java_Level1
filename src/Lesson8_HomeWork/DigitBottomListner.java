@@ -9,6 +9,8 @@ public class DigitBottomListner implements ActionListener {
     private final JTextField resultField;
     private final StringBuilder sbTemp, sbFinal;
     private final DefinitionResult result;
+    private int countComand;
+    private String lastComand;
 
 
     public DigitBottomListner(JTextField inputField, JTextField resultField) {
@@ -22,18 +24,28 @@ public class DigitBottomListner implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (result.checkAction(e.getActionCommand())){
+        if (result.checkAction(e.getActionCommand()) && countComand == 0){
+            countComand++;
+            lastComand = e.getActionCommand();
             result.fillBuff(Double.valueOf(resultField.getText()));
             resultField.setText("");
-        }   else if (e.getActionCommand().equals("=") || e.getActionCommand().equals("SQRT")){
+        }   else if (e.getActionCommand().equals("=") || e.getActionCommand().equals("SQRT") || (result.checkAction(e.getActionCommand()) && countComand != 0)) {
             result.fillBuff(Double.valueOf(resultField.getText()));
-            resultField.setText(Double.toString(result.getResult()));
+            resultField.setText(Double.toString(result.getResult(lastComand)));
             result.clearBuff();
+            if (result.checkAction(e.getActionCommand())){
+                result.fillBuff(Double.valueOf(resultField.getText()));
+                inputField.setText(resultField.getText());
+                resultField.setText("");
+            }
+
+            lastComand = e.getActionCommand();
         }
             else if (e.getActionCommand().equals("C")){
             resultField.setText("");
             inputField.setText("");
             result.clearBuff();
+            countComand = 0;
         }
             else {
             sbTemp.append(resultField.getText());
