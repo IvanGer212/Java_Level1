@@ -2,8 +2,6 @@ package Lesson8_HomeWork;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class BottomFrame {
     private final JPanel panel;
@@ -13,15 +11,19 @@ public class BottomFrame {
         panel.setLayout( new GridLayout(5,3));
         DigitBottomListner bottomListner = new DigitBottomListner(inputField,resultField);
 
-        for (int i =0; i<=9; i++){
+        for (int i =1; i<=9; i++){
             JButton btn = new JButton(String.valueOf(i));
             btn.addActionListener(bottomListner);
             panel.add(btn);
         }
 
-        JButton result = new JButton("=");
-        result.addActionListener(bottomListner);
-        panel.add(result);
+        JButton btn = new JButton(String.valueOf(0));
+        btn.addActionListener(bottomListner);
+        panel.add(btn);
+
+        JButton point = new JButton(".");
+        point.addActionListener(bottomListner);
+        panel.add(point);
 
         JButton clear = new JButton("C");
         panel.add(clear);
@@ -47,9 +49,13 @@ public class BottomFrame {
         sqrt.addActionListener(bottomListner);
         panel.add(sqrt);
 
-        JButton point = new JButton(".");
-        point.addActionListener(bottomListner);
-        panel.add(point);
+        JButton pow = new JButton("^");
+        pow.addActionListener(bottomListner);
+        panel.add(pow);
+
+        JButton result = new JButton("=");
+        result.addActionListener(bottomListner);
+        panel.add(result);
 
     }
 

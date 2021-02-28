@@ -23,11 +23,11 @@ public class DigitBottomListner implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (result.checkAction(e.getActionCommand())){
-            result.fillBuff(Float.valueOf(resultField.getText()));
+            result.fillBuff(Double.valueOf(resultField.getText()));
             resultField.setText("");
-        }   else if (e.getActionCommand().equals("=")){
-            result.fillBuff(Float.valueOf(resultField.getText()));
-            resultField.setText(Float.toString(result.getResult()));
+        }   else if (e.getActionCommand().equals("=") || e.getActionCommand().equals("SQRT")){
+            result.fillBuff(Double.valueOf(resultField.getText()));
+            resultField.setText(Double.toString(result.getResult()));
             result.clearBuff();
         }
             else if (e.getActionCommand().equals("C")){

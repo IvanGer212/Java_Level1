@@ -1,16 +1,16 @@
 package Lesson8_HomeWork;
 
 public class DefinitionResult {
-    private float result;
+    private double result;
     private String action;
-    private final float[] buffNum = new float[2];
+    private final double[] buffNum = new double[2];
 
-    public DefinitionResult(int result, String action) {
+    public DefinitionResult(double result, String action) {
         this.result = result;
         this.action = action;
     }
 
-    public float getResult() {
+    public double getResult() {
         switch (action){
             case "sum":
                 result = buffNum[0]+buffNum[1];
@@ -25,6 +25,13 @@ public class DefinitionResult {
                 if (buffNum[1] != 0) {
                     result = buffNum[0] / buffNum[1];
                 } else System.out.println("Error");
+                break;
+            case "pow":
+                result = Math.pow(buffNum[0],buffNum[1]);
+                break;
+            case "sqrt":
+                result = Math.sqrt(buffNum[0]);
+                break;
         }
         return result;
     }
@@ -35,7 +42,7 @@ public class DefinitionResult {
         }
     }
 
-    public void fillBuff (float num){
+    public void fillBuff (double num){
         for (int i = 0; i < buffNum.length; i++) {
             if (buffNum[i] == 0){
                buffNum[i] = num;
@@ -58,7 +65,12 @@ public class DefinitionResult {
             case "/":
                 action = "div";
                 return true;
-
+            case "^":
+                action = "pow";
+                return true;
+            case "SQRT":
+                action = "sqrt";
+                break;
             default:
                 break;
         } return false;
