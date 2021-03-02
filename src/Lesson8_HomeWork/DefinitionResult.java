@@ -28,7 +28,6 @@ public class DefinitionResult {
                 } else {
                     error = true;
                 }
-
                 break;
             case "^":
                 result = Math.pow(buffNum[0],buffNum[1]);
@@ -63,9 +62,9 @@ public class DefinitionResult {
             case "/":
             case "^":
                 return true;
-            case "SQRT":
-                action = "sqrt";
-                break;
+            //case "SQRT":
+            //    action = "sqrt";
+            //    break;
             default:
                 break;
         } return false;

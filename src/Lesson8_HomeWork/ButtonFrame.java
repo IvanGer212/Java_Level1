@@ -3,58 +3,63 @@ package Lesson8_HomeWork;
 import javax.swing.*;
 import java.awt.*;
 
-public class BottomFrame {
+public class ButtonFrame {
     private final JPanel panel;
 
-    public BottomFrame(JTextField inputField, JTextField resultField) {
+    public ButtonFrame(JTextField inputField, JTextField resultField) {
         panel = new JPanel();
         panel.setLayout( new GridLayout(5,3));
-        DigitBottomListner bottomListner = new DigitBottomListner(inputField,resultField);
+        DigitButtonListner buttonListner = new DigitButtonListner(inputField,resultField);
 
         for (int i =1; i<=9; i++){
             JButton btn = new JButton(String.valueOf(i));
-            btn.addActionListener(bottomListner);
+            btn.addActionListener(buttonListner);
             panel.add(btn);
         }
 
         JButton btn = new JButton(String.valueOf(0));
-        btn.addActionListener(bottomListner);
+        btn.addActionListener(buttonListner);
         panel.add(btn);
 
         JButton point = new JButton(".");
-        point.addActionListener(bottomListner);
+        point.addActionListener(buttonListner);
         panel.add(point);
 
         JButton clear = new JButton("C");
         panel.add(clear);
-        clear.addActionListener(bottomListner);
+        clear.addActionListener(buttonListner);
 
         JButton sum = new JButton("+");
-        sum.addActionListener(bottomListner);
+        sum.addActionListener(buttonListner);
         panel.add(sum);
 
         JButton sub = new JButton("-");
-        sub.addActionListener(bottomListner);
+        sub.addActionListener(buttonListner);
         panel.add(sub);
 
         JButton multi = new JButton("*");
-        multi.addActionListener(bottomListner);
+        multi.addActionListener(buttonListner);
         panel.add(multi);
 
+        JButton del = new JButton("del");
+        del.addActionListener(buttonListner);
+        panel.add(del);
+
+
         JButton div = new JButton("/");
-        div.addActionListener(bottomListner);
+        div.addActionListener(buttonListner);
         panel.add(div);
 
         JButton sqrt = new JButton("SQRT");
-        sqrt.addActionListener(bottomListner);
+        sqrt.addActionListener(buttonListner);
         panel.add(sqrt);
 
         JButton pow = new JButton("^");
-        pow.addActionListener(bottomListner);
+        pow.addActionListener(buttonListner);
         panel.add(pow);
 
         JButton result = new JButton("=");
-        result.addActionListener(bottomListner);
+        result.addActionListener(buttonListner);
         panel.add(result);
 
     }
